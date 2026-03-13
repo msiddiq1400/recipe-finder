@@ -1,3 +1,5 @@
+import type { User } from '@supabase/supabase-js';
+
 export interface Recipe {
   id: number;
   title: string;
@@ -21,3 +23,5 @@ export interface SearchResponse {
   results: SearchResult[];
   totalResults: number;
 }
+
+export type { User };

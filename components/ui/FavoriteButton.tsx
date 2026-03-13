@@ -15,7 +15,17 @@ export default function FavoriteButton({ recipe }: Props) {
   async function handleSave() {
     setLoading(true);
 
+    // Get current user
+    const { data: { user } } = await supabase.auth.getUser();
+
+    if (!user) {
+      alert('Please login to save recipes.');
+      setLoading(false);
+      return;
+    }
+
     const { error } = await supabase.from('favorites').insert({
+      user_id: user.id,
       recipe_id: recipe.id,
       title: recipe.title,
       image: recipe.image,
