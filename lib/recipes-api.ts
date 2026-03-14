@@ -49,3 +49,19 @@ export async function getFeaturedRecipes(): Promise<TastySearchResponse> {
 
   return res.json();
 }
+
+export async function searchRecipesByCuisine(cuisine: string): Promise<TastySearchResponse> {
+  const res = await fetch(
+    `${BASE_URL}/recipes/list?from=0&size=12&q=${encodeURIComponent(cuisine)}`,
+    {
+      headers,
+      // Cache for 1 hour — cuisine pages are static and don't need fresh data
+      // This is ISR (Incremental Static Regeneration) — pages rebuild in background
+      next: { revalidate: 3600 },
+    }
+  );
+
+  if (!res.ok) throw new Error(`Failed to fetch ${cuisine} recipes`);
+
+  return res.json();
+}
