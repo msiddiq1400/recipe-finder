@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
-import { Recipe } from '@/types';
+import { TastyRecipe } from '@/types';
 
 type Props = {
-  recipe: Recipe;
+  recipe: TastyRecipe;
 };
 
 export default function FavoriteButton({ recipe }: Props) {
@@ -27,10 +27,10 @@ export default function FavoriteButton({ recipe }: Props) {
     const { error } = await supabase.from('favorites').insert({
       user_id: user.id,
       recipe_id: recipe.id,
-      title: recipe.title,
-      image: recipe.image,
-      ready_in_minutes: recipe.readyInMinutes,
-      servings: recipe.servings,
+      title: recipe.name,
+      image: recipe.thumbnail_url,
+      ready_in_minutes: recipe.total_time_minutes,
+      servings: recipe.num_servings,
     });
 
     if (error) {

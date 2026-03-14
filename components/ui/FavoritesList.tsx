@@ -4,15 +4,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import RemoveFavoriteButton from './RemoveFavoriteButton';
+import { Favorite } from '@/types';
 
-type Favorite = {
-  id: string;
-  recipe_id: number;
-  title: string;
-  image: string;
-  ready_in_minutes: number;
-  servings: number;
-};
 
 type Props = {
   initialFavorites: Favorite[];

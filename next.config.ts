@@ -7,6 +7,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'img.spoonacular.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'img.buzzfeed.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 's3.amazonaws.com',
+      },
     ],
   },
 };
