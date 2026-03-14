@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { href: '/cuisines', label: 'Cuisines' },
   { href: '/topics', label: 'Topics' },
   { href: '/popular', label: 'Popular' },
+  { href: '/recipe-of-the-day', label: 'Today' },
   { href: '/favorites', label: 'Favorites' },
 ];
 
